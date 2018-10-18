@@ -1,0 +1,5 @@
+.vs
+/RestfulCoreAPI/bin
+/RestfulCoreAPI/obj
+/RestfulCoreAPI/bin/Debug/netcoreapp2.1
+/RestfulCoreAPI/obj/Debug/netcoreapp2.1
