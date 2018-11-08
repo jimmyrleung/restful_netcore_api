@@ -1,0 +1,14 @@
+C:\Projetos\restful_netcore_api\RestfulCoreAPI.Services\bin\Debug\netcoreapp2.1\RestfulCoreAPI.Services.deps.json
+C:\Projetos\restful_netcore_api\RestfulCoreAPI.Services\bin\Debug\netcoreapp2.1\RestfulCoreAPI.Services.dll
+C:\Projetos\restful_netcore_api\RestfulCoreAPI.Services\bin\Debug\netcoreapp2.1\RestfulCoreAPI.Services.pdb
+C:\Projetos\restful_netcore_api\RestfulCoreAPI.Services\bin\Debug\netcoreapp2.1\RestfulCoreAPI.Data.dll
+C:\Projetos\restful_netcore_api\RestfulCoreAPI.Services\bin\Debug\netcoreapp2.1\RestfulCoreAPI.Models.dll
+C:\Projetos\restful_netcore_api\RestfulCoreAPI.Services\bin\Debug\netcoreapp2.1\RestfulCoreAPI.Data.pdb
+C:\Projetos\restful_netcore_api\RestfulCoreAPI.Services\bin\Debug\netcoreapp2.1\RestfulCoreAPI.Models.pdb
+C:\Projetos\restful_netcore_api\RestfulCoreAPI.Services\obj\Debug\netcoreapp2.1\RestfulCoreAPI.Services.csprojAssemblyReference.cache
+C:\Projetos\restful_netcore_api\RestfulCoreAPI.Services\obj\Debug\netcoreapp2.1\RestfulCoreAPI.Services.csproj.CoreCompileInputs.cache
+C:\Projetos\restful_netcore_api\RestfulCoreAPI.Services\obj\Debug\netcoreapp2.1\RestfulCoreAPI.Services.AssemblyInfoInputs.cache
+C:\Projetos\restful_netcore_api\RestfulCoreAPI.Services\obj\Debug\netcoreapp2.1\RestfulCoreAPI.Services.AssemblyInfo.cs
+C:\Projetos\restful_netcore_api\RestfulCoreAPI.Services\obj\Debug\netcoreapp2.1\RestfulCoreAPI.Services.csproj.CopyComplete
+C:\Projetos\restful_netcore_api\RestfulCoreAPI.Services\obj\Debug\netcoreapp2.1\RestfulCoreAPI.Services.dll
+C:\Projetos\restful_netcore_api\RestfulCoreAPI.Services\obj\Debug\netcoreapp2.1\RestfulCoreAPI.Services.pdb

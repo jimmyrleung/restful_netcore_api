@@ -1,0 +1,9 @@
+C:\Projetos\restful_netcore_api\RestfulCoreAPI.Models\bin\Debug\netcoreapp2.1\RestfulCoreAPI.Models.deps.json
+C:\Projetos\restful_netcore_api\RestfulCoreAPI.Models\bin\Debug\netcoreapp2.1\RestfulCoreAPI.Models.dll
+C:\Projetos\restful_netcore_api\RestfulCoreAPI.Models\bin\Debug\netcoreapp2.1\RestfulCoreAPI.Models.pdb
+C:\Projetos\restful_netcore_api\RestfulCoreAPI.Models\obj\Debug\netcoreapp2.1\RestfulCoreAPI.Models.csprojAssemblyReference.cache
+C:\Projetos\restful_netcore_api\RestfulCoreAPI.Models\obj\Debug\netcoreapp2.1\RestfulCoreAPI.Models.csproj.CoreCompileInputs.cache
+C:\Projetos\restful_netcore_api\RestfulCoreAPI.Models\obj\Debug\netcoreapp2.1\RestfulCoreAPI.Models.AssemblyInfoInputs.cache
+C:\Projetos\restful_netcore_api\RestfulCoreAPI.Models\obj\Debug\netcoreapp2.1\RestfulCoreAPI.Models.AssemblyInfo.cs
+C:\Projetos\restful_netcore_api\RestfulCoreAPI.Models\obj\Debug\netcoreapp2.1\RestfulCoreAPI.Models.dll
+C:\Projetos\restful_netcore_api\RestfulCoreAPI.Models\obj\Debug\netcoreapp2.1\RestfulCoreAPI.Models.pdb
