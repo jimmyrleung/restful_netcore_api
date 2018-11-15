@@ -9,8 +9,9 @@ using RestfulCoreAPI.Services.Interfaces;
 
 namespace RestfulCoreAPI.Controllers
 {
-    [Route("api/people")]
     [ApiController]
+    [ApiVersion("1.0")]
+    [Route("api/v{version:apiVersion}/people")]
     public class PersonController : ControllerBase
     {
         private readonly IPersonService _personService;
@@ -25,6 +26,19 @@ namespace RestfulCoreAPI.Controllers
             try
             {
                 return Ok(_personService.Create(person));
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { error = ex.InnerException.Message });
+            }
+        }
+
+        [HttpGet("")]
+        public ActionResult GetAll()
+        {
+            try
+            {
+                return Ok(_personService.GetAll());
             }
             catch (Exception ex)
             {

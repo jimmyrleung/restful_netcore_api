@@ -7,8 +7,9 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace RestfulCoreAPI.Controllers
 {
-    [Route("api/operations")]
     [ApiController]
+    [ApiVersion("1.0")]
+    [Route("api/v{version:apiVersion}/operations")]
     public class CalculatorController : ControllerBase
     {
         [HttpGet("sum/{firstNumber}/{secondNumber}")]

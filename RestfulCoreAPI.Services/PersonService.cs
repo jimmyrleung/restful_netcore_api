@@ -21,24 +21,24 @@ namespace RestfulCoreAPI.Services
             return _personRepository.Create(person);
         }
 
-        public void Delete(long id)
+        public void Delete(int id)
         {
-            throw new NotImplementedException();
+            _personRepository.Delete(id);
         }
 
-        public List<Person> FindAll()
+        public IList<Person> GetAll()
         {
-            throw new NotImplementedException();
+            return _personRepository.GetAll();
         }
 
-        public Person FindById(long id)
+        public Person GetById(int id)
         {
-            throw new NotImplementedException();
+            return _personRepository.GetbyId(id);
         }
 
         public Person Update(Person person)
         {
-            throw new NotImplementedException();
+            return _personRepository.Update(person);
         }
     }
 }

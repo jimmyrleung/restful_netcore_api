@@ -6,9 +6,9 @@ namespace RestfulCoreAPI.Services.Interfaces
     public interface IPersonService
     {
         Person Create(Person person);
-        Person FindById(long id);
-        List<Person> FindAll();
+        Person GetById(int id);
+        IList<Person> GetAll();
         Person Update(Person person);
-        void Delete(long id);
+        void Delete(int id);
     }
 }
