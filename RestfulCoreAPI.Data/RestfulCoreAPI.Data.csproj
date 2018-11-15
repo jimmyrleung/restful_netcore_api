@@ -5,11 +5,23 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Evolve" Version="1.9.0" />
+    <PackageReference Include="MySql.Data" Version="8.0.13" />
     <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="2.1.2" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\RestfulCoreAPI.Models\RestfulCoreAPI.Models.csproj" />
   </ItemGroup>
+
+  <!-- Adicionado para funcionar as migrations utilizando o MySQLConnection do MySQL.Data quando o projeto usa o Pomelo para se conectar
+  com o MySQL -->
+  <Target Name="ChangeAliasesOfStrongNameAssemblies" BeforeTargets="FindReferenceAssembliesForReferences;ResolveReferences">
+    <ItemGroup>
+    <ReferencePath Condition="'%(FileName)' == 'MySqlConnector'">
+      <Aliases>MySqlConnectorAlias</Aliases>
+    </ReferencePath>
+    </ItemGroup>
+  </Target>
 
 </Project>

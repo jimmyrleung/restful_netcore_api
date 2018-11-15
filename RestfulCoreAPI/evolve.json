@@ -1,0 +1,7 @@
+{
+  "Evolve.Driver": "MySQL.Data",
+  "Evolve.Locations": "Scripts",
+  "Evolve.Command": "migrate",
+  "Evolve.ConnectionString": "Server=localhost; DataBase=DbRestfulCoreAPI; Uid=root; Pwd=root",
+  "Evolve.Placeholder.table4": "table4"
+}
