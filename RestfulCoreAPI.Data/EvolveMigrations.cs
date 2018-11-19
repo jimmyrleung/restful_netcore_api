@@ -14,7 +14,7 @@ namespace RestfulCoreAPI.Data
             // TODO: Check if its possible to keep 'evolve.json' and the folder 'Scripts' in the Data Project
             var evolve = new Evolve.Evolve("evolve.json", evolveConnection)
             {
-                Locations = new List<string> { "Scripts/Migrations" },
+                Locations = new List<string> { "Scripts/Migrations", "Scripts/Datasets" },
                 IsEraseDisabled = true
             };
 
