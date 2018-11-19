@@ -10,14 +10,13 @@ namespace RestfulCoreAPI.Data
     {
         public MySQLContext()
         {
-
         }
 
         public MySQLContext(DbContextOptions<MySQLContext> options) : base(options) 
         {
-
         }
 
         public DbSet<Person> Person { get; set; }
+        public DbSet<Book> Book { get; set; }
     }
 }

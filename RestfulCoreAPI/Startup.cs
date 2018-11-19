@@ -38,6 +38,9 @@ namespace RestfulCoreAPI
             services.AddScoped<IPersonRepository, PersonRepository>();
             services.AddScoped<IPersonService, PersonService>();
 
+            services.AddScoped<IBookRepository, BookRepository>();
+            services.AddScoped<IBookService, BookService>();
+
             // Migrate our database using Evolve
             EvolveMigrations.Migrate(connectionString);
 

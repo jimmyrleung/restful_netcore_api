@@ -9,40 +9,42 @@ namespace RestfulCoreAPI.Data.Repositories
     // TEntity must be a class
     public class BaseRepository<TEntity> where TEntity : class
     {
-        MySQLContext _context;
+        private MySQLContext _context;
+        private DbSet<TEntity> _dbSet;
         public BaseRepository(MySQLContext context)
         {
             _context = context;
+            _dbSet = _context.Set<TEntity>();
         }
 
         public TEntity Create(TEntity entity)
         {
-            _context.Set<TEntity>().Add(entity);
+            _dbSet.Add(entity);
             _context.SaveChanges();
             return entity;
         }
 
         public TEntity Update(TEntity entity)
         {
-            _context.Set<TEntity>().Update(entity);
+            _dbSet.Update(entity);
             _context.SaveChanges();
             return entity;
         }
 
         public TEntity GetbyId(int id)
         {
-            return _context.Set<TEntity>().Find(id);
+            return _dbSet.Find(id);
         }
 
         public IList<TEntity> GetAll()
         {
-            return _context.Set<TEntity>().ToList();
+            return _dbSet.ToList();
         }
 
         public void Delete(int id)
         {
             TEntity entityToDelete = GetbyId(id);
-            _context.Set<TEntity>().Remove(entityToDelete);
+            _dbSet.Remove(entityToDelete);
             _context.SaveChanges();
         }
     }
