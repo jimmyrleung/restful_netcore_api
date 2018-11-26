@@ -7,6 +7,7 @@
   <ItemGroup>
     <ProjectReference Include="..\RestfulCoreAPI.Data\RestfulCoreAPI.Data.csproj" />
     <ProjectReference Include="..\RestfulCoreAPI.Models\RestfulCoreAPI.Models.csproj" />
+    <ProjectReference Include="..\RestfulCoreAPI.ViewModels\RestfulCoreAPI.ViewModels.csproj" />
   </ItemGroup>
 
 </Project>

@@ -2,20 +2,26 @@
 using RestfulCoreAPI.Data.Repositories.Interfaces;
 using RestfulCoreAPI.Models;
 using RestfulCoreAPI.Services.Interfaces;
+using RestfulCoreAPI.ViewModels;
 
 namespace RestfulCoreAPI.Services
 {
     public class BookService : IBookService
     {
         private readonly IBookRepository _bookRepository;
+        private readonly BookParser _parser;
+
         public BookService(IBookRepository bookRepository)
         {
             _bookRepository = bookRepository;
+            _parser = new BookParser();
         }
 
-        public Book Create(Book book)
+        public BookViewModel Create(BookViewModel bookViewModel)
         {
-            return _bookRepository.Create(book);
+            var book = _parser.Parse(bookViewModel);
+            book = _bookRepository.Create(book);
+            return _parser.Parse(book);
         }
 
         public void Delete(int id)
@@ -23,19 +29,21 @@ namespace RestfulCoreAPI.Services
             _bookRepository.Delete(id);
         }
 
-        public IList<Book> GetAll()
+        public IList<BookViewModel> GetAll()
         {
-            return _bookRepository.GetAll();
+            return _parser.ParseList(_bookRepository.GetAll());
         }
 
-        public Book GetById(int id)
+        public BookViewModel GetById(int id)
         {
-            return _bookRepository.GetbyId(id);
+            return _parser.Parse(_bookRepository.GetbyId(id));
         }
 
-        public Book Update(Book book)
+        public BookViewModel Update(BookViewModel bookViewModel)
         {
-            return _bookRepository.Update(book);
+            var book = _parser.Parse(bookViewModel);
+            book = _bookRepository.Update(book);
+            return _parser.Parse(book);
         }
     }
 }

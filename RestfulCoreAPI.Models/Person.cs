@@ -12,19 +12,15 @@ namespace RestfulCoreAPI.Models
     {
         [Key]
         [Column("id")]
-        [JsonProperty("id")]
         public long? Id { get; set; }
 
         [Column("firstName")]
-        [JsonProperty("firstName")]
         public string FirstName { get; set; }
 
         [Column("lastName")]
-        [JsonProperty("lastName")]
         public string LastName { get; set; }
 
         [Column("gender")]
-        [JsonProperty("gender")]
         public char Gender { get; set; }
     }
 }

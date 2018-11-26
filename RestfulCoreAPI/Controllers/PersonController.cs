@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using RestfulCoreAPI.Models;
 using RestfulCoreAPI.Services.Interfaces;
+using RestfulCoreAPI.ViewModels;
 
 namespace RestfulCoreAPI.Controllers
 {
@@ -21,7 +22,7 @@ namespace RestfulCoreAPI.Controllers
         }
 
         [HttpPost("")]
-        public ActionResult Create([FromBody]Person person)
+        public ActionResult Create([FromBody]PersonViewModel person)
         {
             try
             {

@@ -5,20 +5,26 @@ using RestfulCoreAPI.Data.Repositories;
 using RestfulCoreAPI.Data.Repositories.Interfaces;
 using RestfulCoreAPI.Models;
 using RestfulCoreAPI.Services.Interfaces;
+using RestfulCoreAPI.ViewModels;
 
 namespace RestfulCoreAPI.Services
 {
     public class PersonService : IPersonService
     {
         private readonly IPersonRepository _personRepository;
+        private readonly PersonParser _parser;
+
         public PersonService(IPersonRepository personRepository)
         {
             _personRepository = personRepository;
+            _parser = new PersonParser();
         }
 
-        public Person Create(Person person)
+        public PersonViewModel Create(PersonViewModel personViewModel)
         {
-            return _personRepository.Create(person);
+            var person = _parser.Parse(personViewModel);
+            person =_personRepository.Create(person);
+            return _parser.Parse(person);
         }
 
         public void Delete(int id)
@@ -26,19 +32,21 @@ namespace RestfulCoreAPI.Services
             _personRepository.Delete(id);
         }
 
-        public IList<Person> GetAll()
+        public IList<PersonViewModel> GetAll()
         {
-            return _personRepository.GetAll();
+            return _parser.ParseList(_personRepository.GetAll());
         }
 
-        public Person GetById(int id)
+        public PersonViewModel GetById(int id)
         {
-            return _personRepository.GetbyId(id);
+            return _parser.Parse(_personRepository.GetbyId(id));
         }
 
-        public Person Update(Person person)
+        public PersonViewModel Update(PersonViewModel personViewModel)
         {
-            return _personRepository.Update(person);
+            var person = _parser.Parse(personViewModel);
+            person = _personRepository.Update(person);
+            return _parser.Parse(person);
         }
     }
 }

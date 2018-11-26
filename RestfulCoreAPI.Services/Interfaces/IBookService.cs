@@ -1,14 +1,15 @@
 ﻿using System.Collections.Generic;
 using RestfulCoreAPI.Models;
+using RestfulCoreAPI.ViewModels;
 
 namespace RestfulCoreAPI.Services.Interfaces
 {
     public interface IBookService
     {
-        Book Create(Book book);
+        BookViewModel Create(BookViewModel book);
         void Delete(int id);
-        IList<Book> GetAll();
-        Book GetById(int id);
-        Book Update(Book book);
+        IList<BookViewModel> GetAll();
+        BookViewModel GetById(int id);
+        BookViewModel Update(BookViewModel book);
     }
 }

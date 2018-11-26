@@ -9,3 +9,5 @@
 /RestfulCoreAPI.Services/obj
 /RestfulCoreAPI.Models/obj
 /RestfulCoreAPI.Models/bin
+/RestfulCoreAPI.ViewModels/bin
+/RestfulCoreAPI.ViewModels/obj
