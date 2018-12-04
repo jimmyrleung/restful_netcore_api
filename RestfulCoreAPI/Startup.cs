@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Microsoft.Net.Http.Headers;
 using RestfulCoreAPI.Data;
 using RestfulCoreAPI.Data.Repositories;
 using RestfulCoreAPI.Data.Repositories.Interfaces;
@@ -45,6 +46,17 @@ namespace RestfulCoreAPI
             EvolveMigrations.Migrate(connectionString);
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+
+            #region XML Response
+            // Uncomment if you want your api to return XML Responses
+            //services.AddMvc(options =>
+            //{
+            //    options.RespectBrowserAcceptHeader = true;
+            //    //Use Microsoft.Net.Http.Headers.MediaTypeHeaderValue for Parser
+
+            //   options.FormatterMappings.SetMediaTypeMappingForFormat("xml", MediaTypeHeaderValue.Parse("text/xml"));
+            //}).SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            #endregion
 
             // API Versioning
             services.AddApiVersioning();
