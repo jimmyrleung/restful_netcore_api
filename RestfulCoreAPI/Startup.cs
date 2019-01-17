@@ -1,17 +1,18 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Rewrite;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using Microsoft.Net.Http.Headers;
 using RestfulCoreAPI.Data;
 using RestfulCoreAPI.Data.Repositories;
 using RestfulCoreAPI.Data.Repositories.Interfaces;
 using RestfulCoreAPI.Hypermedia;
 using RestfulCoreAPI.Services;
 using RestfulCoreAPI.Services.Interfaces;
+using Swashbuckle.AspNetCore.Swagger;
 using Tapioca.HATEOAS;
 
 namespace RestfulCoreAPI
@@ -74,6 +75,17 @@ namespace RestfulCoreAPI
 
             #endregion
 
+            #region Swagger
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", 
+                    new Info {
+                        Title = "RESTful API with ASP.NET Core 2.1",
+                        Version = "v1"
+                    });
+            });
+            #endregion
+
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
             // API Versioning
@@ -86,6 +98,20 @@ namespace RestfulCoreAPI
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+
+                // Use Swagger
+                app.UseSwagger();
+
+                // Enable swagger Interface
+                app.UseSwaggerUI(c =>
+                {
+                    c.SwaggerEndpoint("/swagger/v1/swagger.json", "RESTful API v1");
+                });
+
+                // Rewrite our redirect to the swagger page
+                var option = new RewriteOptions();
+                option.AddRedirect("^$", "swagger");
+                app.UseRewriter(option);
             }
 
             app.UseMvc(routes => {

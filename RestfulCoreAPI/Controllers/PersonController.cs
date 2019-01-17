@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using RestfulCoreAPI.Models;
+﻿using Microsoft.AspNetCore.Mvc;
 using RestfulCoreAPI.Services.Interfaces;
 using RestfulCoreAPI.ViewModels;
+using System;
 using Tapioca.HATEOAS;
+using Swashbuckle.AspNetCore.Swagger;
+using System.Collections.Generic;
 
 namespace RestfulCoreAPI.Controllers
 {
@@ -37,6 +34,8 @@ namespace RestfulCoreAPI.Controllers
         }
 
         [HttpGet("")]
+        [ProducesResponseType(typeof(IList<PersonViewModel>), 200)] // Swagger 4+
+        //[SwaggerResponse((200), Type = typeof(IList<PersonViewModel>))] // Swagger 3
         [TypeFilter(typeof(HyperMediaFilter))]
         public ActionResult GetAll()
         {
