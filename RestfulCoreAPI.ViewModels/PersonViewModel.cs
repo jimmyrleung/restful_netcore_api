@@ -1,10 +1,12 @@
 ﻿using Newtonsoft.Json;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using Tapioca.HATEOAS;
 
 namespace RestfulCoreAPI.ViewModels
 {
-    public class PersonViewModel
+    public class PersonViewModel : ISupportsHyperMedia
     {
         [Key]
         [JsonProperty("id")]
@@ -18,5 +20,7 @@ namespace RestfulCoreAPI.ViewModels
 
         [JsonProperty("gender")]
         public char Gender { get; set; }
+
+        public List<HyperMediaLink> Links { get; set; } = new List<HyperMediaLink>();
     }
 }

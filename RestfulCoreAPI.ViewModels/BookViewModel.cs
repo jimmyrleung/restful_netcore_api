@@ -1,12 +1,14 @@
 ﻿using Newtonsoft.Json;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using Tapioca.HATEOAS;
 
 namespace RestfulCoreAPI.ViewModels
 {
     // If you don't want to use 'JsonProperty, there is another way to define the Model Data: DataContract
     // [DataContract]
-    public class BookViewModel
+    public class BookViewModel: ISupportsHyperMedia
     {
         [Key]
         [JsonProperty("id")]
@@ -24,5 +26,7 @@ namespace RestfulCoreAPI.ViewModels
 
         [JsonProperty("title")]
         public string Title { get; set; }
+
+        public List<HyperMediaLink> Links { get; set; } = new List<HyperMediaLink>();
     }
 }

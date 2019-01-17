@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using RestfulCoreAPI.Models;
 using RestfulCoreAPI.Services.Interfaces;
 using RestfulCoreAPI.ViewModels;
+using Tapioca.HATEOAS;
 
 namespace RestfulCoreAPI.Controllers
 {
@@ -22,6 +23,7 @@ namespace RestfulCoreAPI.Controllers
         }
 
         [HttpPost("")]
+        [TypeFilter(typeof(HyperMediaFilter))]
         public ActionResult Create([FromBody]PersonViewModel person)
         {
             try
@@ -35,6 +37,7 @@ namespace RestfulCoreAPI.Controllers
         }
 
         [HttpGet("")]
+        [TypeFilter(typeof(HyperMediaFilter))]
         public ActionResult GetAll()
         {
             try

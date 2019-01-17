@@ -9,8 +9,10 @@ using Microsoft.Net.Http.Headers;
 using RestfulCoreAPI.Data;
 using RestfulCoreAPI.Data.Repositories;
 using RestfulCoreAPI.Data.Repositories.Interfaces;
+using RestfulCoreAPI.Hypermedia;
 using RestfulCoreAPI.Services;
 using RestfulCoreAPI.Services.Interfaces;
+using Tapioca.HATEOAS;
 
 namespace RestfulCoreAPI
 {
@@ -36,16 +38,22 @@ namespace RestfulCoreAPI
                 options.UseMySql(connectionString)
             );
 
+            #region Repositories and Services Injection
+
             services.AddScoped<IPersonRepository, PersonRepository>();
             services.AddScoped<IPersonService, PersonService>();
 
             services.AddScoped<IBookRepository, BookRepository>();
             services.AddScoped<IBookService, BookService>();
 
+            #endregion
+
+            #region Migration
+
             // Migrate our database using Evolve
             EvolveMigrations.Migrate(connectionString);
 
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            #endregion
 
             #region XML Response
             // Uncomment if you want your api to return XML Responses
@@ -57,6 +65,16 @@ namespace RestfulCoreAPI
             //   options.FormatterMappings.SetMediaTypeMappingForFormat("xml", MediaTypeHeaderValue.Parse("text/xml"));
             //}).SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
             #endregion
+
+            #region HATEOAS Configuration
+
+            var filterOptions = new HyperMediaFilterOptions();
+            filterOptions.ObjectContentResponseEnricherList.Add(new PersonEnricher());
+            services.AddSingleton(filterOptions);
+
+            #endregion
+
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
             // API Versioning
             services.AddApiVersioning();
@@ -70,7 +88,9 @@ namespace RestfulCoreAPI
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseMvc();
+            app.UseMvc(routes => {
+                routes.MapRoute(name: "DefaultApi", template: "{controller=Values}/{id?}");
+            });
         }
     }
 }
