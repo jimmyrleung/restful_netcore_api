@@ -1,9 +1,18 @@
-﻿namespace RestfulCoreAPI.Models
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace RestfulCoreAPI.Models
 {
     public class User
     {
-        public long? id { get; set; }
-        public string username { get; set; }
-        public string passwd { get; set; }
+        [Key]
+        [Column("id")]
+        public long? Id { get; set; }
+
+        [Column("username")]
+        public string Username { get; set; }
+
+        [Column("passwd")]
+        public string Password { get; set; }
     }
 }

@@ -16,7 +16,7 @@ namespace RestfulCoreAPI.Data.Repositories
 
         public User FindByUsername(string login)
         {
-            return _context.User.SingleOrDefault(u => u.username.Equals(login));
+            return _context.User.SingleOrDefault(u => u.Username.Equals(login));
         }
     }
 }
