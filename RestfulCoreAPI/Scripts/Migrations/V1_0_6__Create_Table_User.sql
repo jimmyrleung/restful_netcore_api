@@ -1,0 +1,6 @@
+﻿CREATE TABLE [User] (
+	id INT(10) NOT NULL AUTO_INCREMENT,
+	username VARCHAR(80),
+	passwd VARCHAR(80),
+	PRIMARY KEY (id)
+);
